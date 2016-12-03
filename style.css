@@ -1,0 +1,21 @@
+.btn {
+  margin-right: 7.5px;
+  margin-top: 7.5px;
+  background-color: #0cada7;
+  color: white;
+}
+
+#gifs {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.gif {
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+#animal-form {
+  margin-top: 40px;
+}
