@@ -8,10 +8,10 @@ $(document).ready(function() {
         animal + "&api_key=dc6zaTOxFJmzC" + limit;
 
     function initGifs() {
-        console.log(queryURL);
+
         $("#gifs").empty();
         for (var i = 0; i < results.length; i++) {
-            console.log(results.length);
+
             var gifDiv = $("<div class='gif'>");
 
             var rating = results[i].rating;
@@ -102,10 +102,10 @@ $(document).ready(function() {
 
 
                 function initGifs() {
-                    console.log(queryURL);
+
                     $("#gifs").empty();
                     for (var i = 0; i < results.length; i++) {
-                        console.log(results.length);
+
                         var gifDiv = $("<div class='gif'>");
 
                         var rating = results[i].rating;
@@ -133,7 +133,7 @@ $(document).ready(function() {
     //click load more button
     $(document).on("click", "#loadBtn", function() {
         numLimit += 10;
-        console.log(numLimit);
+    
         limit = "&limit=" + numLimit;
         queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
         $.ajax({
