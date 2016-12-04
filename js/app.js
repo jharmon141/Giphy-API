@@ -1,8 +1,37 @@
 $(document).ready(function() {
 
-    var buttonList = ["cat", "dog", "rabbit", "squirrel", "raccoon", "goldfish", "goat", "turtle", "chicken", "bird", "hamster", "hedgehog", "hermit crab", "frog", "pig", "penguin", "deer", "bear", "manatee"];
+    var buttonList = ["cat", "dog", "rabbit", "squirrel", "raccoon", "goldfish", "goat", "turtle", "parrot", "hamster", "hedgehog", "hermit crab", "frog", "pig", "penguin", "deer", "bear", "manatee", "mouse", "crab"];
+    var animal = $(this).attr("data-name");
+    var numLimit = 10;
+    var limit = "&limit=" + numLimit;
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        animal + "&api_key=dc6zaTOxFJmzC" + limit;
+    function initGifs(){
+      console.log(queryURL);
+      $("#gifs").empty();
+        for (var i = 0; i < results.length; i++) {
+            console.log(results.length);
+            var gifDiv = $("<div class='gif'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var animalImage = $("<img>");
+            animalImage.attr("src", results[i].images.fixed_height_still.url);
+            animalImage.attr("data-state", "still");
+            animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+            animalImage.attr("data-animate", results[i].images.fixed_height.url);
+
+            gifDiv.append(p);
+            gifDiv.append(animalImage);
+
+            $("#gifs").append(gifDiv);
+        }
+    }
 
     renderButtons();
+    $("#loadBtn").hide();
 
     // Function for displaying buttons
     function renderButtons() {
@@ -45,9 +74,11 @@ $(document).ready(function() {
         event.preventDefault();
         $("#gifs").empty();
 
-        var animal = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-            animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+        animal = $(this).attr("data-name");
+        numLimit = 10;
+        limit = "&limit=" + numLimit;
+        queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+            animal + "&api_key=dc6zaTOxFJmzC" + limit;
 
         $.ajax({
                 url: queryURL,
@@ -57,25 +88,60 @@ $(document).ready(function() {
 
                 var results = response.data;
 
-                for (var i = 0; i < results.length; i++) {
-                    var gifDiv = $("<div class='gif'>");
+                //render load more button
+                $("#loadBtn").show();
+                initGifs();
 
-                    var rating = results[i].rating;
 
-                    var p = $("<p>").text("Rating: " + rating);
+                function initGifs(){
+                  console.log(queryURL);
+                  $("#gifs").empty();
+                    for (var i = 0; i < results.length; i++) {
+                        console.log(results.length);
+                        var gifDiv = $("<div class='gif'>");
 
-                    var animalImage = $("<img>");
-                    animalImage.attr("src", results[i].images.fixed_height_still.url);
-                    animalImage.attr("data-state", "still");
-                    animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                    animalImage.attr("data-animate", results[i].images.fixed_height.url);
+                        var rating = results[i].rating;
 
-                    gifDiv.append(p);
-                    gifDiv.append(animalImage);
+                        var p = $("<p>").text("Rating: " + rating);
 
-                    $("#gifs").append(gifDiv);
+                        var animalImage = $("<img>");
+                        animalImage.attr("src", results[i].images.fixed_height_still.url);
+                        animalImage.attr("data-state", "still");
+                        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        animalImage.attr("data-animate", results[i].images.fixed_height.url);
+
+                        gifDiv.append(p);
+                        gifDiv.append(animalImage);
+
+                        $("#gifs").append(gifDiv);
+                    }
                 }
+
+              });
+
+
+    });
+
+    //click load more button
+    $(document).on("click", "#loadBtn", function() {
+      numLimit += 10;
+      console.log(numLimit);
+      limit = "&limit=" + numLimit;
+      queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
+      $.ajax({
+              url: queryURL,
+              method: "GET"
+          })
+          .done(function(response) {
+              results = response.data;
+              initGifs();
+
+
             });
+            $("document").on("click", ".animal-btn", function(){
+              numLimit = 10;
+            });
+
     });
 
     //click the gifs to play and stop
