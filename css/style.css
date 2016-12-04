@@ -27,7 +27,7 @@ h4 {
 }
 
 .form-control {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #animal-form {
@@ -81,14 +81,14 @@ h4 {
   display: inline-block;;
   margin-bottom: 40px;
   float: left;
-  margin-left: 45%;
+  margin-left: 43%;
 }
 
 .loadBtn:hover{
   color: white;
   background-color: #00919e;
   float: left;
-  margin-left: 45%;
+  margin-left: 43%;
 }
 
 #loadBtn:focus {
@@ -100,7 +100,7 @@ h4 {
   margin-bottom: 40px;
   outline : none;
   float: left;
-  margin-left: 45%;
+  margin-left: 43%;
 }
 
 #loadBtn:active:focus{
@@ -113,6 +113,7 @@ h4 {
 #back-to-top {
   display: inline-block;;
   margin-bottom: 40px;
+  margin-right: 5px;
 }
 
 #loadMore {
