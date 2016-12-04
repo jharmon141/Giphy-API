@@ -4,7 +4,7 @@ $(document).ready(function() {
     var animal = $(this).attr("data-name");
     var numLimit = 10;
     var limit = "&limit=" + numLimit;
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         animal + "&api_key=dc6zaTOxFJmzC" + limit;
 
     function initGifs() {
@@ -83,7 +83,7 @@ $(document).ready(function() {
         animal = $(this).attr("data-name");
         numLimit = 10;
         limit = "&limit=" + numLimit;
-        queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+        queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             animal + "&api_key=dc6zaTOxFJmzC" + limit;
 
         $.ajax({
@@ -135,7 +135,7 @@ $(document).ready(function() {
         numLimit += 10;
 
         limit = "&limit=" + numLimit;
-        queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
+        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
         $.ajax({
                 url: queryURL,
                 method: "GET"
