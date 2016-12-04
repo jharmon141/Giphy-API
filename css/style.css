@@ -34,10 +34,6 @@ h4 {
     margin-top: 15px;
 }
 
-#container {
-  margin-left: 50px;
-  margin-right: 50px;
-}
 
 #spacer {
     width: 100%;
@@ -69,6 +65,7 @@ h4 {
 
 #gifs {
   margin-bottom: 40px;
+  margin-left: 35px;
 }
 
 .gif {
@@ -78,46 +75,48 @@ h4 {
 }
 
 #loadBtn {
-  display: inline-block;;
   margin-bottom: 40px;
-  float: left;
-  margin-left: 43%;
+  margin-right: 5px;
 }
 
 .loadBtn:hover{
   color: white;
   background-color: #00919e;
-  float: left;
-  margin-left: 43%;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 #loadBtn:focus {
   background-color: #e97735;
   color: white;
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-block;;
+  display: flex;
+  justify-content: center;
   margin-bottom: 40px;
   outline : none;
-  float: left;
-  margin-left: 43%;
-}
-
-#loadBtn:active:focus{
-  color: black;
-  background-color: yellow ;
-  float: left;
-  margin-left: 45%;
-}
-
-#back-to-top {
-  display: inline-block;;
-  margin-bottom: 40px;
   margin-right: 5px;
 }
 
+#loadBtn:active:focus {
+  color: black;
+  background-color: yellow ;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#loadMore button {
+  width: 115px;
+  text-align: center;
+}
+
 #loadMore {
-  margin-left: auto;
-  margin-right: auto;
-  object-position: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 35px;
+}
+
+#back-to-top {
+  display: flex;;
+  margin-bottom: 40px;
 }
