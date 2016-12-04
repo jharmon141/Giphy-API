@@ -16,7 +16,7 @@ $(document).ready(function() {
 
             var rating = results[i].rating;
 
-            var p = $("<p>").text("Rating: " + rating);
+            var p = $("<p>").text("rating: " + rating);
 
             var animalImage = $("<img>");
             animalImage.attr("src", results[i].images.fixed_height_still.url);
@@ -34,7 +34,7 @@ $(document).ready(function() {
     renderButtons();
     $("#loadBtn").hide();
     $("#back-to-top").hide();
-    $("#spacer").hide();
+    $("#clickText").hide();
 
     // Function for displaying buttons
     function renderButtons() {
@@ -97,7 +97,7 @@ $(document).ready(function() {
                 //show load 10 more button
                 $("#loadBtn").show();
                 $("#back-to-top").show();
-                $("#spacer").show();
+                $("#clickText").show();
                 initGifs();
 
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
                         var rating = results[i].rating;
 
-                        var p = $("<p>").text("Rating: " + rating);
+                        var p = $("<p>").text("rating: " + rating);
 
                         var animalImage = $("<img>");
                         animalImage.attr("src", results[i].images.fixed_height_still.url);
@@ -191,5 +191,34 @@ $(document).ready(function() {
             }, 700);
         });
     }
+
+    function moveScroller() {
+    var $anchor = $("#scroller-anchor");
+    var $scroller = $('#scroller');
+
+    var move = function() {
+        var st = $(window).scrollTop();
+        var ot = $anchor.offset().top;
+        if(st > ot) {
+            $scroller.css({
+                position: "fixed",
+                top: "0px"
+            });
+        } else {
+            if(st <= ot) {
+                $scroller.css({
+                    position: "relative",
+                    top: ""
+                });
+            }
+        }
+    };
+    $(window).scroll(move);
+    move();
+}
+
+$(function() {
+    moveScroller();
+  });
 
 });
