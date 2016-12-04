@@ -66,7 +66,10 @@ $(document).ready(function() {
 
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
+
+        $("form").trigger("reset");
     });
+
 
     //click the animal button and render images
     $(document).on("click", ".animal-btn", function() {
@@ -158,4 +161,5 @@ $(document).ready(function() {
         }
 
     });
+
 });
