@@ -49,8 +49,8 @@ body {
 }
 
 .btn-default:active:focus{
-  color: white;
-  background-color: #FF0099;
+  color: black;
+  background-color: yellow ;
 }
 
 #gifs {
@@ -83,4 +83,9 @@ body {
   display: block;
   margin-bottom: 40px;
   outline : none;
+}
+
+#loadBtn:active:focus{
+  color: black;
+  background-color: yellow ;
 }
