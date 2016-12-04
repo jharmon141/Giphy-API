@@ -8,40 +8,45 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
 
-        <div id="header">
+    <div id="header">
+
+      <div id="clickSearch"><h4>Choose a search topic:</h4></div>
+
         <div class="row" id="buttons"></div>
 
         <div class="row">
 
-          <div class="col-md-8" id="blank"></div>
+            <div class="col-md-8" id="blank"></div>
 
-          <div class="col-md-4" id="add-button">
+            <div class="col-md-4" id="add-button">
 
-              <form id="animal-form">
-                  <label for="animal-input">Add an Animal</label><br>
-                  <input type="text" class="form-control" id="animal-input">
-                  <input class="btn btn-default" id="add-animal" type="submit" value="Submit">
-              </form>
+                <form id="animal-form">
+                    <label for="animal-input">Add a Topic</label><br>
+                    <input type="text" class="form-control" id="animal-input">
+                    <input class="btn btn-default" id="add-animal" type="submit" value="Submit">
+                </form>
 
-          </div>
+            </div>
 
         </div>
-        </div>
+    </div>
 
-        <div id="spacer"></div>
+    <div id="spacer"><h4>Click Gif to Play</h4></div>
 
-        <div id="container">
+    <div id="container">
         <div class="row" id="gifs"></div>
 
         <div class="row" id="loadMore">
-          <button class="btn btn-default" id="loadBtn">Load 10 More</button>
+            <button class="btn btn-default" id="loadBtn">Load 10 More</button>
+            <button class="btn btn-default" id="back-to-top">Back to Top</button>
         </div>
-        </div>
+    </div>
 
 
     <script src="js/app.js"></script>

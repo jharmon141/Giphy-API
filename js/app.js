@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var buttonList = ["cat", "dog", "rabbit", "squirrel", "raccoon", "goldfish", "goat", "turtle", "parrot", "hamster", "hedgehog", "hermit crab", "frog", "pig", "penguin", "deer", "bear", "manatee", "mouse", "crab"];
+    var topics = ["cat", "dog", "rabbit", "squirrel", "raccoon", "goldfish", "goat", "turtle", "parrot", "hamster", "hedgehog", "hermit crab", "frog", "pig", "penguin", "deer", "bear", "manatee", "mouse", "crab"];
     var animal = $(this).attr("data-name");
     var numLimit = 10;
     var limit = "&limit=" + numLimit;
@@ -33,6 +33,8 @@ $(document).ready(function() {
 
     renderButtons();
     $("#loadBtn").hide();
+    $("#back-to-top").hide();
+    $("#spacer").hide();
 
     // Function for displaying buttons
     function renderButtons() {
@@ -40,16 +42,16 @@ $(document).ready(function() {
         $("#buttons").empty();
 
         // Looping through the array of animals
-        for (var i = 0; i < buttonList.length; i++) {
+        for (var i = 0; i < topics.length; i++) {
 
             // Then dynamicaly generating buttons for each animal in the array
             var a = $("<button>");
             // Adding a class
             a.addClass("btn btn-default animal-btn");
             // Added a data-attribute
-            a.attr("data-name", buttonList[i]);
+            a.attr("data-name", topics[i]);
             // Provided the initial button text
-            a.text(buttonList[i]);
+            a.text(topics[i]);
             // Added the button to the HTML
             $("#buttons").append(a);
         }
@@ -63,7 +65,7 @@ $(document).ready(function() {
         var input = $("#animal-input").val().trim();
 
         // The movie from the textbox is then added to our array
-        buttonList.push(input);
+        topics.push(input);
 
         // Calling renderButtons which handles the processing of our movie array
         renderButtons();
@@ -94,6 +96,8 @@ $(document).ready(function() {
 
                 //show load 10 more button
                 $("#loadBtn").show();
+                $("#back-to-top").show();
+                $("#spacer").show();
                 initGifs();
 
 
@@ -164,5 +168,27 @@ $(document).ready(function() {
         }
 
     });
+
+    if ($('#back-to-top').length) {
+    var scrollTrigger = 100, // px
+        backToTop = function () {
+            var scrollTop = $(window).scrollTop();
+            if (scrollTop > scrollTrigger) {
+                $('#back-to-top').addClass('show');
+            } else {
+                $('#back-to-top').removeClass('show');
+            }
+        };
+    backToTop();
+    $(window).on('scroll', function () {
+        backToTop();
+    });
+    $('#back-to-top').on('click', function (e) {
+        e.preventDefault();
+        $('html,body').animate({
+            scrollTop: 0
+        }, 700);
+    });
+}
 
 });
