@@ -1,7 +1,7 @@
 body {
-  background-image: url("../images/gridme.png");
+  background-image: url("../images/giftly.png");
   background-repeat: repeat;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Questrial', sans-serif;
   letter-spacing: 1px;
 }
 
@@ -10,7 +10,7 @@ body {
   padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 10px;
-  background-image: url("../images/gridme.png");
+  background-image: url("../images/giftly.png");
   background-repeat: repeat;
   position: fixed;
   display: block;
@@ -39,13 +39,18 @@ body {
 }
 
 .btn-default:hover{
-  color: green;
-  background-color: #fffa5a;
+  color: white;
+  background-color: #00919e;
 }
 
 .btn-default:focus{
-  color: green;
-  background-color: #fffa5a;
+  color: white;
+  background-color: #00919e;
+}
+
+.btn-default:active:focus{
+  color: white;
+  background-color: #FF0099;
 }
 
 #gifs {
@@ -63,4 +68,19 @@ body {
   margin-right: auto;
   display: block;
   margin-bottom: 40px;
+}
+
+.loadBtn:hover{
+  color: white;
+  background-color: #00919e;
+}
+
+#loadBtn:focus {
+  background-color: #00919e;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 40px;
+  outline : none;
 }

@@ -6,9 +6,10 @@ $(document).ready(function() {
     var limit = "&limit=" + numLimit;
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
         animal + "&api_key=dc6zaTOxFJmzC" + limit;
-    function initGifs(){
-      console.log(queryURL);
-      $("#gifs").empty();
+
+    function initGifs() {
+        console.log(queryURL);
+        $("#gifs").empty();
         for (var i = 0; i < results.length; i++) {
             console.log(results.length);
             var gifDiv = $("<div class='gif'>");
@@ -91,14 +92,14 @@ $(document).ready(function() {
 
                 var results = response.data;
 
-                //render load more button
+                //show load 10 more button
                 $("#loadBtn").show();
                 initGifs();
 
 
-                function initGifs(){
-                  console.log(queryURL);
-                  $("#gifs").empty();
+                function initGifs() {
+                    console.log(queryURL);
+                    $("#gifs").empty();
                     for (var i = 0; i < results.length; i++) {
                         console.log(results.length);
                         var gifDiv = $("<div class='gif'>");
@@ -120,30 +121,32 @@ $(document).ready(function() {
                     }
                 }
 
-              });
+            });
 
 
     });
 
     //click load more button
     $(document).on("click", "#loadBtn", function() {
-      numLimit += 10;
-      console.log(numLimit);
-      limit = "&limit=" + numLimit;
-      queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
-      $.ajax({
-              url: queryURL,
-              method: "GET"
-          })
-          .done(function(response) {
-              results = response.data;
-              initGifs();
+        numLimit += 10;
+        console.log(numLimit);
+        limit = "&limit=" + numLimit;
+        queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
+        $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+            .done(function(response) {
+                results = response.data;
+                initGifs();
 
 
             });
-            $("document").on("click", ".animal-btn", function(){
-              numLimit = 10;
-            });
+
+        //reset limit of images displayed
+        $("document").on("click", ".animal-btn", function() {
+            numLimit = 10;
+        });
 
     });
 
