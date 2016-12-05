@@ -8,7 +8,7 @@ body {
 
 #top {
  width: 100%;
- padding-left: 49px;
+ padding-left: 48px;
  padding-bottom: 10px;
  background-image: url("../images/giftly.png");
  background-repeat: repeat;
@@ -24,13 +24,22 @@ h4 {
 }
 
 .form-control {
- font-size: 23px;
+ font-size: 30px;
 }
 
 #animal-form {
    margin-top: 15px;
    z-index: -1;
    margin-right: 60px;
+}
+
+#add-animal{
+  margin-top: 7.5px;
+}
+
+label {
+  font-weight: lighter;
+  font-size: 30px;
 }
 
 #clickText {
@@ -45,12 +54,11 @@ h4 {
 }
 
 #blank {
- padding: 0;
+ padding: 1px;
 }
 
-.btn {
+.btn-default {
  margin-right: 7.5px;
- margin-top: 7.5px;
  margin-bottom: 7.5px;
  background-color: #e97735;
  color: white;
@@ -58,16 +66,22 @@ h4 {
 }
 
 .btn-default:hover{
+  margin-right: 7.5px;
+  margin-bottom: 7.5px;
  color: white;
  background-color: #00919e;
 }
 
 .btn-default:focus{
+  margin-right: 7.5px;
+  margin-bottom: 7.5px;
  color: white;
  background-color: #00919e;
 }
 
 .btn-default:active:focus{
+  margin-right: 7.5px;
+  margin-bottom: 7.5px;
  color: black;
  background-color: yellow ;
 }
@@ -86,7 +100,6 @@ h4 {
 .loadBtn:hover{
  color: white;
  background-color: #00919e;
- margin-right: 5px;
  display: flex;
  justify-content: center;
 }
@@ -97,13 +110,11 @@ h4 {
  display: flex;
  justify-content: center;
  outline : none;
- margin-right: 5px;
 }
 
 #loadBtn:active:focus {
  color: black;
  background-color: yellow ;
- margin-right: 5px;
  display: flex;
  justify-content: center;
 }
