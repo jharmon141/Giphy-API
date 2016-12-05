@@ -9,7 +9,6 @@ body {
 #top {
  width: 100%;
  padding-left: 49px;
- padding-right: 49px;
  padding-bottom: 10px;
  background-image: url("../images/giftly.png");
  background-repeat: repeat;
@@ -31,6 +30,7 @@ h4 {
 #animal-form {
    margin-top: 15px;
    z-index: -1;
+   margin-right: 60px;
 }
 
 #clickText {
@@ -151,5 +151,5 @@ body {
  z-index: 999;
  position: relative;
  display: block;
- width: 100%;
+ width: 98%;
 }
