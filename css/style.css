@@ -1,9 +1,16 @@
+html {
+ position: relative;
+ min-height: 100%;
+}
+
 body {
  background-image: url("../images/giftly.png");
  background-repeat: repeat;
+ background-attachment: fixed;
  font-family: 'Amatic SC', cursive;
  font-size: 25px;
  letter-spacing: 1px;
+ margin-bottom: 60px;
 }
 
 #top {
@@ -12,6 +19,7 @@ body {
  padding-bottom: 10px;
  background-image: url("../images/giftly.png");
  background-repeat: repeat;
+ background-attachment: fixed;
  top: 0;
 }
 
@@ -27,13 +35,13 @@ h4 {
  font-size: 30px;
 }
 
-#animal-form {
+#topic-form {
    margin-top: 15px;
    z-index: -1;
-   margin-right: 60px;
+   margin-right: 40px;
 }
 
-#add-animal{
+#add-topic{
   margin-top: 7.5px;
 }
 
@@ -60,7 +68,7 @@ label {
 .btn-default {
  margin-right: 7.5px;
  margin-bottom: 7.5px;
- background-color: #e97735;
+ background-color: #FE5D26;
  color: white;
  font-size: 20px;
 }
@@ -69,21 +77,21 @@ label {
   margin-right: 7.5px;
   margin-bottom: 7.5px;
  color: white;
- background-color: #00919e;
+ background-color: #17BEBB;
 }
 
 .btn-default:focus{
   margin-right: 7.5px;
   margin-bottom: 7.5px;
  color: white;
- background-color: #00919e;
+ background-color: #17BEBB;
 }
 
 .btn-default:active:focus{
   margin-right: 7.5px;
   margin-bottom: 7.5px;
  color: black;
- background-color: yellow ;
+ background-color: #F9DC5C ;
 }
 
 #gifs {
@@ -99,13 +107,13 @@ label {
 
 .loadBtn:hover{
  color: white;
- background-color: #00919e;
+ background-color: #17BEBB;
  display: flex;
  justify-content: center;
 }
 
 #loadBtn:focus {
- background-color: #e97735;
+ background-color: #FE5D26;
  color: white;
  display: flex;
  justify-content: center;
@@ -114,7 +122,7 @@ label {
 
 #loadBtn:active:focus {
  color: black;
- background-color: yellow ;
+ background-color: #F9DC5C ;
  display: flex;
  justify-content: center;
 }
@@ -127,21 +135,13 @@ label {
 #loadMore {
  display: flex;
  justify-content: center;
+ margin-left: 15px;
 }
 
-html {
- position: relative;
- min-height: 100%;
-}
-body {
- /* Margin bottom by footer height */
- margin-bottom: 60px;
-}
 .footer {
  position: absolute;
  bottom: 0;
  width: 100%;
- /* Set the fixed height of the footer here */
  text-align: center;
  font-size: 20px;
  vertical-align: bottom;
@@ -150,17 +150,23 @@ body {
 #buttons {
  position: relative;
  display: block;
- padding-top: 5px;
- padding-bottom: 5px;
+ padding-top: 7px;
+ padding-bottom: 1px;
  width: 100%;
- padding-right: 21px;
+ padding-right: 11px;
 }
 
 #scroller {
  background-image: url("../images/giftly.png");
  background-repeat: repeat;
+ background-attachment: fixed;
  z-index: 999;
  position: relative;
  display: block;
  width: 98%;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px:
 }

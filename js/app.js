@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-    var topics = ["cat", "dog", "rabbit", "squirrel", "raccoon", "goldfish", "goat", "turtle", "parrot", "hamster", "hedgehog", "hermit crab", "frog", "pig", "penguin", "deer", "bear", "manatee", "mouse", "crab"];
-    var animal = $(this).attr("data-name");
+    var topics = ["cats", "space", "tacos", "bowie", "rocko's modern life", "goats", "80's movies", "twin peaks", "hamster", "star trek", "christmas", "the simpsons", "doge", "batman", "manatee"];
+    var topic = $(this).attr("data-name");
     var numLimit = 10;
     var limit = "&limit=" + numLimit;
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=dc6zaTOxFJmzC" + limit;
+        topic + "&api_key=dc6zaTOxFJmzC" + limit;
 
     function initGifs() {
 
@@ -18,14 +18,14 @@ $(document).ready(function() {
 
             var p = $("<p>").text("rating: " + rating);
 
-            var animalImage = $("<img>");
-            animalImage.attr("src", results[i].images.fixed_height_still.url);
-            animalImage.attr("data-state", "still");
-            animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-            animalImage.attr("data-animate", results[i].images.fixed_height.url);
+            var topicImage = $("<img>");
+            topicImage.attr("src", results[i].images.fixed_height_still.url);
+            topicImage.attr("data-state", "still");
+            topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+            topicImage.attr("data-animate", results[i].images.fixed_height.url);
 
             gifDiv.append(p);
-            gifDiv.append(animalImage);
+            gifDiv.append(topicImage);
 
             $("#gifs").append(gifDiv);
         }
@@ -41,13 +41,13 @@ $(document).ready(function() {
 
         $("#buttons").empty();
 
-        // Looping through the array of animals
+        // Looping through the array of topics
         for (var i = 0; i < topics.length; i++) {
 
-            // Then dynamicaly generating buttons for each animal in the array
+            // Then dynamicaly generating buttons for each topic in the array
             var a = $("<button>");
             // Adding a class
-            a.addClass("btn btn-default animal-btn");
+            a.addClass("btn btn-default topic-btn");
             // Added a data-attribute
             a.attr("data-name", topics[i]);
             // Provided the initial button text
@@ -57,12 +57,12 @@ $(document).ready(function() {
         }
     }
 
-    // Add animal button
-    $("#add-animal").on("click", function(event) {
+    // Add topic button
+    $("#add-topic").on("click", function(event) {
         event.preventDefault();
 
         // This line grabs the input from the textbox
-        var input = $("#animal-input").val().trim();
+        var input = $("#topic-input").val().trim();
 
         // The movie from the textbox is then added to our array
         topics.push(input);
@@ -74,17 +74,17 @@ $(document).ready(function() {
     });
 
 
-    //click the animal button and render images
-    $(document).on("click", ".animal-btn", function() {
+    //click the topic button and render images
+    $(document).on("click", ".topic-btn", function() {
 
         event.preventDefault();
         $("#gifs").empty();
 
-        animal = $(this).attr("data-name");
+        topic = $(this).attr("data-name");
         numLimit = 10;
         limit = "&limit=" + numLimit;
         queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            animal + "&api_key=dc6zaTOxFJmzC" + limit;
+            topic + "&api_key=dc6zaTOxFJmzC" + limit;
 
         $.ajax({
                 url: queryURL,
@@ -112,14 +112,14 @@ $(document).ready(function() {
 
                         var p = $("<p>").text("rating: " + rating);
 
-                        var animalImage = $("<img>");
-                        animalImage.attr("src", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-state", "still");
-                        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                        animalImage.attr("data-animate", results[i].images.fixed_height.url);
+                        var topicImage = $("<img>");
+                        topicImage.attr("src", results[i].images.fixed_height_still.url);
+                        topicImage.attr("data-state", "still");
+                        topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+                        topicImage.attr("data-animate", results[i].images.fixed_height.url);
 
                         gifDiv.append(p);
-                        gifDiv.append(animalImage);
+                        gifDiv.append(topicImage);
 
                         $("#gifs").append(gifDiv);
                     }
@@ -135,7 +135,7 @@ $(document).ready(function() {
         numLimit += 10;
 
         limit = "&limit=" + numLimit;
-        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC" + limit;
+        queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=dc6zaTOxFJmzC" + limit;
         $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -148,7 +148,7 @@ $(document).ready(function() {
             });
 
         //reset limit of images displayed
-        $("document").on("click", ".animal-btn", function() {
+        $("document").on("click", ".topic-btn", function() {
             numLimit = 10;
         });
 
@@ -193,32 +193,35 @@ $(document).ready(function() {
     }
 
     function moveScroller() {
-    var $anchor = $("#scroller-anchor");
-    var $scroller = $('#scroller');
+        var $anchor = $("#scroller-anchor");
+        var $scroller = $('#scroller');
 
-    var move = function() {
-        var st = $(window).scrollTop();
-        var ot = $anchor.offset().top;
-        if(st > ot) {
-            $scroller.css({
-                position: "fixed",
-                top: "0px"
-            });
-        } else {
-            if(st <= ot) {
+        var move = function() {
+            var st = $(window).scrollTop();
+            var ot = $anchor.offset().top;
+            if (st > ot) {
                 $scroller.css({
-                    position: "relative",
-                    top: ""
+                    position: "fixed",
+                    top: "0px"
                 });
+                // $scroller.css({
+                //     padding-right: "35px"
+                // });
+            } else {
+                if (st <= ot) {
+                    $scroller.css({
+                        position: "relative",
+                        top: ""
+                    });
+                }
             }
-        }
-    };
-    $(window).scroll(move);
-    move();
-}
+        };
+        $(window).scroll(move);
+        move();
+    }
 
-$(function() {
-    moveScroller();
-  });
+    $(function() {
+        moveScroller();
+    });
 
 });
