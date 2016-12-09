@@ -29,6 +29,7 @@ $(document).ready(function() {
 
             $("#gifs").append(gifDiv);
         }
+        
     }
 
     renderButtons();
