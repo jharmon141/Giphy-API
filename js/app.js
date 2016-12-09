@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var topics = ["cats", "space", "tacos", "bowie", "rocko's modern life", "goats", "80's movies", "twin peaks", "hamster", "star trek", "christmas", "the simpsons", "doge", "batman", "manatee"];
+    var topics = ["cats", "space", "tacos", "bowie", "90's cartoons", "goats", "80's movies", "twin peaks", "hamster", "star trek", "christmas", "the simpsons", "doge", "batman", "manatee"];
     var topic = $(this).attr("data-name");
     var numLimit = 10;
     var limit = "&limit=" + numLimit;
@@ -192,6 +192,7 @@ $(document).ready(function() {
         });
     }
 
+    //sticky buttons bar
     function moveScroller() {
         var $anchor = $("#scroller-anchor");
         var $scroller = $('#scroller');
@@ -204,9 +205,6 @@ $(document).ready(function() {
                     position: "fixed",
                     top: "0px"
                 });
-                // $scroller.css({
-                //     padding-right: "35px"
-                // });
             } else {
                 if (st <= ot) {
                     $scroller.css({
