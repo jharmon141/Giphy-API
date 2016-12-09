@@ -100,7 +100,6 @@ $(document).ready(function() {
                 $("#clickText").show();
                 initGifs();
 
-
                 function initGifs() {
 
                     $("#gifs").empty();
@@ -126,8 +125,6 @@ $(document).ready(function() {
                 }
 
             });
-
-
     });
 
     //click load more button
@@ -143,15 +140,12 @@ $(document).ready(function() {
             .done(function(response) {
                 results = response.data;
                 initGifs();
-
-
             });
 
         //reset limit of images displayed
         $("document").on("click", ".topic-btn", function() {
             numLimit = 10;
         });
-
     });
 
     //click the gifs to play and stop
@@ -166,7 +160,6 @@ $(document).ready(function() {
             $(this).attr("src", $(this).attr("data-still"));
             $(this).attr("data-state", "still");
         }
-
     });
 
     //back to top button
@@ -221,5 +214,4 @@ $(document).ready(function() {
     $(function() {
         moveScroller();
     });
-
 });
