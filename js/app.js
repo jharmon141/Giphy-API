@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var topics = ["cats", "space", "tacos", "bowie", "90's cartoons", "goats", "80's movies", "twin peaks", "hamster", "star trek", "christmas", "futurama", "doge", "batman", "manatee"];
+    var topics = ["cats", "space", "tacos", "bowie", "90's cartoons", "goats", "80's movies", "twin peaks", "hamster", "star trek", "christmas", "futurama", "doge", "batman", "manatee", "bruce lee"];
     var topic = $(this).attr("data-name");
     var numLimit = 10;
     var limit = "&limit=" + numLimit;
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
             $("#gifs").append(gifDiv);
         }
-        
+
     }
 
     renderButtons();
